@@ -1,56 +1,38 @@
 Tarificator::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'home#index', via: :get
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  namespace :admin do
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+    namespace :authority do
+      controller :user_authorities do
+        get 'search_user_authorities' => :search_user_authorities
+        get 'user_authorities/:id/set_user_authority' => :set_user_authority, as: :set_user_authority
+        post 'user_authorities/:id/update_user_authority' => :update_user_authority, as: :update_user_authority
+      end
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+      controller :url_access_authorities do
+        get 'url_access_authorities' => :set_url_access_authorities#, as: :set_url_access_authorities
+        get 'url_access_authorities/init_url_access_authority' => :init_url_access_authorities, as: :init_url_access_authorities
+        get 'url_access_authorities/new_url_access_authority' => :new_url_access_authority, as: :new_url_access_authority
+        get 'url_access_authorities/create_url_access_authority' => :create_url_access_authority, as: :create_url_access_authority
+        get 'url_access_authorities/:id/edit_url_access_authority' => :edit_url_access_authority, as: :edit_url_access_authority
+        get 'url_access_authorities/:id/update_url_access_authority' => :update_url_access_authority, as: :update_url_access_authority
+        get 'url_access_authorities/:id/delete_url_access_authority' => :delete_url_access_authority, as: :delete_url_access_authority
+#        post 'url_access_authorities/:id/update_url_access_authority' => :update_url_access_authority, as: :update_url_access_authority
+      end
+    end
+  end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
   
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get "home/index"
+  get "home/top_secret"
+  
+  controller :sessions do
+    get  'login' => :new
+    get 'submit_login' => :create
+    get 'logout' => :destroy
+  end
+  
+  resources :users
 end

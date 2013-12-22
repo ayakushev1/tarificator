@@ -1,0 +1,24 @@
+<% if (@current_user and !(@current_user.id == 0 ))%>
+  <% unless @current_user.id == 0 %>
+	<%= link_to "User #{@current_user.name}", user_path(@current_user) %> |
+	<%= link_to 'Logout', logout_path %> <br />
+	<% if session[:location].blank? %>
+	  <%= link_to 'Choose your location', new_location_path %>
+	<% else %>
+	  <%= current_location %> |
+	  <%= link_to 'Change location', new_location_path %>  <br />
+	  <% if session[:place].blank? %>
+	    <%= link_to 'Choose your place', new_place_path %> |
+	  <% else %>
+	    <%= current_place %> | 
+	    <%= link_to 'Change place', new_place_path %> | 
+	  <% end %>
+	<% end %>
+  <% end %>	
+<% else %>
+  <% unless current_page?(:controller => '/sessions',:action => 'new') || 
+  	  current_page?(:controller => '/users', :action => 'new') %>
+  	<%= link_to "#{@current_user.name} please register", new_user_path %> 
+	<%= link_to ' or Login', login_path %>
+  <% end %>	
+<% end %>

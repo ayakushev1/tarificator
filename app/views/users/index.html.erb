@@ -1,0 +1,39 @@
+<h1>Listing users</h1>
+<div>
+	<%= will_paginate @users, :class=>"pagination pagination-centered" %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Firstname</th>
+      <th>Date of birth</th>
+      <th>Main Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.surname %></td>
+      <td><%= user.firstname %></td>
+      <td><%= user.date_of_birth %></td>
+      <td><%= user.location.name if user.location %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
+

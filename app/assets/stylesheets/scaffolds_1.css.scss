@@ -1,0 +1,67 @@
+$current_table_raw: #ddd;
+
+.current_table_raw {
+  background-color: $current_table_raw;
+}
+
+
+#body {
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+#container {
+  background-color: #eff;
+  width: 1500px;
+  min-height: 1500px;
+  color: #333;
+  margin: auto;
+  bordex: solid;
+  overflow: auto;
+}
+
+#header {
+  width: 98%;
+  float: left;
+  background-color: #bff;
+  min-height: 100px;
+  margin: 0.5%;
+  padding: 0.5%;
+}
+
+#topleft {
+  width: 45%;
+  float: left;
+  background-color: #bff;  
+  text-align: center;
+  color: #0a0;
+}
+
+#topright {
+  width: 45%;
+  float: right;
+  background-color: #bff;  
+}
+
+#leftside {
+  width: 20%;
+  float: left;
+  background-color: #bff;
+  margin: 0.5%;
+  padding: 0.5%;
+}
+
+#main {
+  width: 76%;
+  float: right;
+  background-color: #bff;
+  margin: 0.5%;
+  padding: 0.5%;
+  overflow: auto;
+  h1 {
+    text-align: center;
+    color: #0a0;
+  }
+}

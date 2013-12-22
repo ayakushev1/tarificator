@@ -7,10 +7,21 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+// require jquery.ui.all
+// require jquery.ui.datepicker
+//=require jquery.ui.draggable
+//=require jquery.ui.resizable
+// require jquery.ui.effect-blind
 //= require jquery_ujs
+// Loads all Bootstrap javascripts
+//= require bootstrap
+//= require bootstrap-datepicker
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+
+Turbolinks.pagesCached(0);
