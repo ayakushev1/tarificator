@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tarificator_development
+  pool: 5
+  username: postgres
+  password: sales7
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tarificator_test
+  pool: 5
+  username: postgres
+  password: sales7
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tarificator_production
+  pool: 5
+  username: postgres
+  password: sales7
